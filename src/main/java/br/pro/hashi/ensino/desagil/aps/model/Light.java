@@ -16,6 +16,13 @@ public class Light implements Receiver {
             return color;
         }
         return Color.BLACK;
+}
+
+    public Color offColor() {
+        if (emitter == null && emitter.read()) {
+            return color;
+        }
+        return Color.RED;
     }
 
     public void setColor(Color color) {

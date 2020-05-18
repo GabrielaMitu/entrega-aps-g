@@ -33,6 +33,7 @@ public class GateView extends FixedPanel implements ActionListener, MouseListene
     // Novos atributos necessários para esta versão da interface.
     private Color color;
     private Color gateColor;
+    private Color gateOffColor;
 
 
     public GateView(Gate gate) {
@@ -116,7 +117,11 @@ public class GateView extends FixedPanel implements ActionListener, MouseListene
         gateColor = lights.getColor();
         System.out.println(gate.read());
 
+        gateOffColor = lights.offColor();
+        System.out.println(gate.read());
+
     }
+
 
 
     @Override
@@ -196,11 +201,16 @@ public class GateView extends FixedPanel implements ActionListener, MouseListene
         // Desenha a imagem, passando sua posição e seu tamanho.
         g.drawImage(image, 10, 80, 221, 221, this);
 
+
         gateColor = lights.getColor();
         g.setColor(gateColor);
         g.fillOval(x_out, y_out, w_out, h_out);
         repaint();
 
+        //gateOffColor = lights.offColor();
+        //goff.setColor(gateOffColor);
+        //goff.fillOval(x_out, y_out, w_out, h_out);
+        //repaint();
 
         // Linha necessária para evitar atrasos
         // de renderização em sistemas Linux.
